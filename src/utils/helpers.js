@@ -1,3 +1,10 @@
+export function handleErrors(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
+}
+
 export const espnLogo = (teamAbrv, size = 24, sport = "mlb") => {
   let teamName = teamAbrv;
 
@@ -262,4 +269,8 @@ export const isArrayEmpty = arrayArg => {
     return false;
   }
   return true;
+};
+
+export const isObjectEmpty = myObject => {
+  return !Object.keys(myObject).length;
 };

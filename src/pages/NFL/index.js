@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useContext, useEffect } from "react";
 import { Route } from "react-router-dom";
-import { StoreNFL } from "../../stores/NFL";
+import { StoreNFL } from "../../stores";
 import Standings from "../Shared/Standings";
 import Home from "../Shared/Home";
 import NavbarSport from "../../componets/NavbarSport";

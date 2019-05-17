@@ -1,25 +1,23 @@
 import React, { createContext, useReducer } from "react";
 
 const initialState = {
-  MlbStandings: [],
-  sport: "MLB",
+  NbaStandings: [],
+  sport: "NBA",
 };
 
 const reducer = (state, action) => {
-  console.log(state, action);
-
   switch (action.type) {
     case "FETCH_DATA":
-      return { ...state, MlbStandings: action.payload };
+      return { ...state, NbaStandings: action.payload };
     default:
       return state;
   }
 };
 
-export const StoreMLB = createContext();
+export const StoreNBA = createContext();
 
-export const MLBProvider = ({ children }) => {
+export const ProviderNBA = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = { state, dispatch };
-  return <StoreMLB.Provider value={value}>{children}</StoreMLB.Provider>;
+  return <StoreNBA.Provider value={value}>{children}</StoreNBA.Provider>;
 };

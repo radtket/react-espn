@@ -16,7 +16,7 @@ const reducer = (state, action) => {
 
 export const StoreNFL = createContext();
 
-export const NFLProvider = ({ children }) => {
+export const ProviderNFL = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = { state, dispatch };
   return <StoreNFL.Provider value={value}>{children}</StoreNFL.Provider>;
