@@ -36,12 +36,10 @@ const App = () => {
     isObjectEmpty(state.Teams) && fetchTeamsFromSport();
   });
 
-  console.log(state);
-
   return (
     <Router>
       <>
-        <Navbar />
+        <Navbar sports={state.Teams} />
         <hr />
         <Route path="/" exact component={Home} />
         <Route

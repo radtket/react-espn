@@ -1,21 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ sports }) => {
+  const BuildSportsNav = SportsArg => {
+    return Object.entries(SportsArg).map(sport => {
+      const [name, teams] = sport;
+      return (
+        <li teams={teams} key={name}>
+          <Link to={`/${name.toLowerCase()}`}>{name}</Link>
+        </li>
+      );
+    });
+  };
+
   return (
     <ul>
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/mlb">MLB</Link>
-      </li>
-      <li>
-        <Link to="/nba">NBA</Link>
-      </li>
-      <li>
-        <Link to="/nfl">NFL</Link>
-      </li>
+      {sports && BuildSportsNav(sports)}
     </ul>
   );
 };
