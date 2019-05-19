@@ -11,7 +11,7 @@ const NavbarSport = ({ sport }) => {
             <Link to={`/${sport}`}>
               <span className="sport__logo ">
                 <img
-                  src={`https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/${sport}.png?w=100&amp;h=100&amp;transparent=true`}
+                  src={`https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/${sport}.png?w=100&h=100&transparent=true`}
                   alt={`${sport} logo`}
                 />
               </span>

@@ -77,9 +77,13 @@ $custom-grid--thirds: (
 	}
 
 	&-nav {
+		display: block;
+		padding-left: 128px;
+
 		@media screen and (min-width: 1024px) {
 			height: $navbar-height;
 			overflow: visible;
+			padding-right: $navbar-logo--width;
 			transition: height 0.2s ease-in-out;
 			z-index: 1000040;
 		}
@@ -131,13 +135,7 @@ $custom-grid--thirds: (
 
 		> ul {
 			@include clearfix;
-			display: block;
-			padding-left: 128px;
-
-			@media screen and (min-width: 1024px) {
-				// max-width: 1400px;
-				padding-right: $navbar-logo--width;
-			}
+			display: inline-block;
 
 			> li {
 				@media screen and (min-width: 1024px) {
