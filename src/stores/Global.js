@@ -1,9 +1,21 @@
 /* eslint-disable react/prop-types */
 import React, { createContext, useReducer } from "react";
+import { handleErrors } from "../utils/helpers";
 
 const initialState = {
   Teams: {},
 };
+
+export const fetchTeams = Promise.all(
+  ["MLB", "NBA", "NFL"].map(sport => {
+    return fetch(`/data/${sport}/teams.json`)
+      .then(handleErrors)
+      .then(value => value.json());
+  })
+).then(data => {
+  const [MLB, NBA, NFL] = data;
+  return { MLB, NBA, NFL };
+});
 
 const reducer = (state, action) => {
   switch (action.type) {

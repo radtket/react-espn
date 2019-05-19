@@ -16,7 +16,6 @@ $navbar-logo--width: 88px;
 
 $megamenu-box-shadow: 0 5px 10px $c-black-30;
 
-
 $c-red: #d00;
 $c-red-dark: #b40000;
 
@@ -26,8 +25,9 @@ $c-gray-medium: #48494a;
 
 $c-off-white: #f1f2f3;
 
-$custom-grid--thirds: (columns: 3,
-	gutter: 10px,
+$custom-grid--thirds: (
+	columns: 3,
+	gutter: 10px
 );
 
 .global {
@@ -37,7 +37,6 @@ $custom-grid--thirds: (columns: 3,
 		font-size: 14px;
 		position: relative;
 		z-index: 1000045;
-
 
 		&__logo {
 			float: left;
@@ -62,7 +61,7 @@ $custom-grid--thirds: (columns: 3,
 				z-index: -1;
 			}
 
-			>a {
+			> a {
 				@include size($navbar-logo--width, $navbar-height);
 
 				svg {
@@ -81,23 +80,45 @@ $custom-grid--thirds: (columns: 3,
 		@media screen and (min-width: 1024px) {
 			height: $navbar-height;
 			overflow: visible;
-			transition: height .2s ease-in-out;
+			transition: height 0.2s ease-in-out;
 			z-index: 1000040;
 		}
 
-		// .global-nav__is-hovering {
-		// 	.sports-megamenu__button {
-		// 		color: $c-gray;
+		.global-nav__is-hovering {
+			.sports-megamenu__button {
+				color: $c-gray;
 
-		// 		&.active {
-		// 			color: red;
+				&:hover {
+					color: $c-white;
+				}
 
-		// 			&:before {
-		// 				border-bottom-color: transparent;
-		// 			}
-		// 		}
-		// 	}
-		// }
+				&.active {
+					color: $c-white;
+
+					&:before {
+						border-bottom-color: transparent;
+					}
+
+					&.sports-megamenu__button--is-open {
+						&:before {
+							border-bottom-color: $c-white !important;
+						}
+					}
+				}
+			}
+
+			// .sports-megamenu__button {
+			// 	color: $c-gray;
+
+			// 	&.active {
+			// 		color: red;
+
+			// 		&:before {
+			// 			border-bottom-color: transparent;
+			// 		}
+			// 	}
+			// }
+		}
 
 		&__item {
 			position: relative;
@@ -108,7 +129,7 @@ $custom-grid--thirds: (columns: 3,
 			// }
 		}
 
-		>ul {
+		> ul {
 			@include clearfix;
 			display: block;
 			padding-left: 128px;
@@ -118,28 +139,26 @@ $custom-grid--thirds: (columns: 3,
 				padding-right: $navbar-logo--width;
 			}
 
-			>li {
+			> li {
 				@media screen and (min-width: 1024px) {
 					float: left;
 					line-height: $navbar-height;
 					list-style-type: none;
-
 				}
 
-				>a {
+				> a {
 					outline: 0;
 
 					@media screen and (min-width: 1024px) {
 						@include padding(null 10px);
-						animation: navTransition .2s ease-in;
+						animation: navTransition 0.2s ease-in;
 						animation-fill-mode: forwards;
 						color: $c-white;
 						cursor: pointer;
 						display: block;
 						// position: relative;
-						transition: opacity .2s ease-out;
+						transition: opacity 0.2s ease-out;
 					}
-
 
 					.link-text-short {
 						@media screen and (min-width: 1024px) {
@@ -148,12 +167,9 @@ $custom-grid--thirds: (columns: 3,
 					}
 				}
 			}
-
-
 		}
 	}
 }
-
 
 .sports {
 	&-megamenu {
@@ -170,7 +186,7 @@ $custom-grid--thirds: (columns: 3,
 			float: left;
 			max-height: 680px;
 			overflow: hidden;
-			transition: max-height .2s ease-in;
+			transition: max-height 0.2s ease-in;
 			white-space: nowrap;
 			z-index: 1000051;
 		}
@@ -184,11 +200,10 @@ $custom-grid--thirds: (columns: 3,
 					@include triangle("up", 16px, 8px, $c-white);
 					@include position(absolute, null null 0 50%);
 					content: "";
-					margin-left: 16px * -.5;
+					margin-left: 16px * -0.5;
 				}
 			}
 		}
-
 
 		&--nav {
 			@media screen and (min-width: 1024px) {
@@ -198,8 +213,8 @@ $custom-grid--thirds: (columns: 3,
 				padding: 0 8px;
 			}
 
-			>li {
-				>a {
+			> li {
+				> a {
 					@media screen and (min-width: 1024px) {
 						border-radius: 3px;
 						color: $c-gray;
@@ -230,10 +245,8 @@ $custom-grid--thirds: (columns: 3,
 						display: none;
 					}
 				}
-
 			}
 		}
-
 
 		.dropdown {
 			&__content {
@@ -260,8 +273,7 @@ $custom-grid--thirds: (columns: 3,
 				}
 
 				nav {
-
-					>a {
+					> a {
 						@include padding(4px);
 						color: $c-gray;
 						line-height: 1;
@@ -271,11 +283,11 @@ $custom-grid--thirds: (columns: 3,
 							border-radius: 4px;
 						}
 
-						>* {
+						> * {
 							vertical-align: middle;
 						}
 
-						>img {
+						> img {
 							@include size(24px);
 							margin-right: 8px;
 						}
@@ -288,13 +300,8 @@ $custom-grid--thirds: (columns: 3,
 				@include margin(10px null);
 			}
 		}
-
-
-
-
 	}
 }
-
 
 .global-nav-container {
 	@include grid-container;
@@ -305,7 +312,7 @@ $custom-grid--thirds: (columns: 3,
 		max-width: 1400px;
 	}
 
-	>ul {
+	> ul {
 		display: inline-block;
 		list-style-type: none;
 		margin: 0;
@@ -314,7 +321,7 @@ $custom-grid--thirds: (columns: 3,
 		vertical-align: top;
 		white-space: nowrap;
 
-		>li {
+		> li {
 			display: inline-block;
 			line-height: 44px;
 			list-style-type: none;
@@ -322,7 +329,7 @@ $custom-grid--thirds: (columns: 3,
 			text-align: center;
 			vertical-align: top;
 
-			>a {
+			> a {
 				color: $c-shark;
 				display: block;
 				font-size: 13px;
@@ -346,7 +353,6 @@ $custom-grid--thirds: (columns: 3,
 		}
 	}
 }
-
 
 .global-nav-secondary {
 	background: $c-white;
@@ -380,7 +386,7 @@ $custom-grid--thirds: (columns: 3,
 			}
 		}
 
-		>a {
+		> a {
 			display: table;
 			position: relative;
 
@@ -390,5 +396,4 @@ $custom-grid--thirds: (columns: 3,
 			}
 		}
 	}
-
 }
