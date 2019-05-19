@@ -1,7 +1,7 @@
 import { ProviderGlobal, StoreGlobal } from "./Global";
-import { ProviderMLB, StoreMLB } from "./sports/MLB";
-import { ProviderNBA, StoreNBA } from "./sports/NBA";
-import { ProviderNFL, StoreNFL } from "./sports/NFL";
+import { ProviderMLB, StoreMLB } from "./MLB";
+import { ProviderNBA, StoreNBA } from "./NBA";
+import { ProviderNFL, StoreNFL } from "./NFL";
 
 export {
   ProviderGlobal,

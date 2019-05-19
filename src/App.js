@@ -4,10 +4,10 @@ import Navbar from "./componets/Navbar";
 import { isObjectEmpty, handleErrors } from "./utils/helpers";
 
 // Pages
-import Home from "./pages/Shared/Home";
+import SiteHome from "./pages/SiteHome";
 
-// Pages - Sport
-import { MLB, NBA, NFL } from "./pages";
+// Routes - Sport
+import { RoutesMLB, RoutesNBA, RoutesNFL } from "./routes";
 
 // Stores
 import { ProviderMLB, ProviderNBA, ProviderNFL, StoreGlobal } from "./stores";
@@ -39,30 +39,38 @@ const App = () => {
   return (
     <Router>
       <>
-        <Navbar sports={state.Teams} />
-        <hr />
-        <Route path="/" exact component={Home} />
+        <Route path="/" exact render={() => <SiteHome {...state} />} />
+
         <Route
-          path="/mlb"
-          render={() => (
-            <ProviderMLB>
-              <MLB sport="MLB" />
-            </ProviderMLB>
+          path="/:id"
+          render={({ match }) => (
+            <Navbar sports={state.Teams} hasSportNav={match.params.id} />
           )}
         />
+
         <Route
-          path="/nba"
-          render={() => (
+          path="/MLB"
+          render={props => {
+            return (
+              <ProviderMLB>
+                <RoutesMLB {...props} sport="MLB" />
+              </ProviderMLB>
+            );
+          }}
+        />
+        <Route
+          path="/NBA"
+          render={props => (
             <ProviderNBA>
-              <NBA sport="NBA" />
+              <RoutesNBA {...props} sport="NBA" />
             </ProviderNBA>
           )}
         />
         <Route
-          path="/nfl"
-          render={() => (
+          path="/NFL"
+          render={props => (
             <ProviderNFL>
-              <NFL sport="NFL" />
+              <RoutesNFL {...props} sport="NFL" />
             </ProviderNFL>
           )}
         />

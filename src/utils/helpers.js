@@ -274,3 +274,15 @@ export const isArrayEmpty = arrayArg => {
 export const isObjectEmpty = myObject => {
   return !Object.keys(myObject).length;
 };
+
+export const smallestToLargest = propArg => {
+  return (a, b) => {
+    if (a[propArg] > b[propArg]) {
+      return 1;
+    }
+    if (b[propArg] > a[propArg]) {
+      return -1;
+    }
+    return 0;
+  };
+};

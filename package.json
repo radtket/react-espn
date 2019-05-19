@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reach/router": "^1.2.1",
+    "bourbon": "^5.1.0",
+    "bourbon-neat": "^3.0.1",
     "babel-eslint": "^10.0.1",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",

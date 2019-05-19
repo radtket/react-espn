@@ -1,26 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const Navbar = ({ sports }) => {
-  const BuildSportsNav = SportsArg => {
-    return Object.entries(SportsArg).map(sport => {
-      const [name, teams] = sport;
-      return (
-        <li teams={teams} key={name}>
-          <Link to={`/${name.toLowerCase()}`}>{name}</Link>
-        </li>
-      );
-    });
-  };
+import GlobalNavbar from "./GlobalNavbar";
+import NavbarSport from "./NavbarSport";
 
+const Navbar = ({ sports, hasSportNav }) => {
   return (
-    <ul>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      {sports && BuildSportsNav(sports)}
-    </ul>
+    <>
+      <header className="global-header">
+        <GlobalNavbar sports={sports} />
+        {hasSportNav && <NavbarSport sport={hasSportNav} />}
+      </header>
+    </>
   );
+};
+
+Navbar.propTypes = {
+  sports: PropTypes.shape({
+    MLB: PropTypes.arrayOf(PropTypes.object),
+    NBA: PropTypes.arrayOf(PropTypes.object),
+    NFL: PropTypes.arrayOf(PropTypes.object),
+  }),
+  hasSportNav: PropTypes.string,
+};
+
+Navbar.defaultProps = {
+  sports: {},
+  hasSportNav: null,
 };
 
 export default Navbar;

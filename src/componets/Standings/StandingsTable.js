@@ -15,11 +15,7 @@ const StandingsTable = ({ teamStandings, sport }) => {
           divisionTeams={divisionTeamsComponents.map(team => {
             const { Key, Team } = team;
             return (
-              <StandingsSingleTeam
-                key={Key || Team}
-                team={team}
-                sport={sport}
-              />
+              <StandingsSingleTeam key={Key || Team} {...team} sport={sport} />
             );
           })}
         />
