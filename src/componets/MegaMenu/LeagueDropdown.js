@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import CreateTeamsMegaMenu from "./CreateTeamsMegaMenu";
 
-const LeagueDropdown = ({ Title, teams, route }) => {
+const LeagueDropdown = ({ Title, teams, route, NotMobile }) => {
   const node = useRef();
   const [open, setOpen] = useState(false);
 
@@ -34,8 +34,8 @@ const LeagueDropdown = ({ Title, teams, route }) => {
     <li
       ref={node}
       className="global-nav__item"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => handleChange()}>
+      onMouseEnter={() => NotMobile && setOpen(true)}
+      onMouseLeave={() => NotMobile && handleChange()}>
       <NavLink
         className={`sports-megamenu__button ${
           open ? "sports-megamenu__button--is-open" : ""
@@ -43,10 +43,7 @@ const LeagueDropdown = ({ Title, teams, route }) => {
         exact
         to={`/${route}`}
         onClick={() => handleChange()}>
-        <span>
-          <span className="link-text"> {Title}</span>
-          <span className="link-text-short"> {Title}</span>
-        </span>
+        <span className="link-text"> {Title}</span>
       </NavLink>
 
       {open && (
@@ -54,10 +51,7 @@ const LeagueDropdown = ({ Title, teams, route }) => {
           <ul className="sports-megamenu--nav">
             <li>
               <NavLink exact to={`/${route}`} onClick={() => handleChange()}>
-                <span>
-                  <span className="link-text">Home</span>
-                  <span className="link-text-short">Home</span>
-                </span>
+                <span className="link-text">Home</span>
               </NavLink>
             </li>
             <li>
@@ -65,10 +59,7 @@ const LeagueDropdown = ({ Title, teams, route }) => {
                 exact
                 to={`/${route}/scores`}
                 onClick={() => handleChange()}>
-                <span>
-                  <span className="link-text">Scores</span>
-                  <span className="link-text-short">Scores</span>
-                </span>
+                <span className="link-text">Scores</span>
               </NavLink>
             </li>
             <li>
@@ -76,10 +67,7 @@ const LeagueDropdown = ({ Title, teams, route }) => {
                 exact
                 to={`/${route}/schedule`}
                 onClick={() => handleChange()}>
-                <span>
-                  <span className="link-text">Schedule</span>
-                  <span className="link-text-short">Schedule</span>
-                </span>
+                <span className="link-text">Schedule</span>
               </NavLink>
             </li>
             <li>
@@ -87,10 +75,7 @@ const LeagueDropdown = ({ Title, teams, route }) => {
                 exact
                 to={`/${route}/standings`}
                 onClick={() => handleChange()}>
-                <span>
-                  <span className="link-text">Standings</span>
-                  <span className="link-text-short">Standings</span>
-                </span>
+                <span className="link-text">Standings</span>
               </NavLink>
             </li>
             <li>
@@ -98,10 +83,7 @@ const LeagueDropdown = ({ Title, teams, route }) => {
                 exact
                 to={`/${route}/stats`}
                 onClick={() => handleChange()}>
-                <span>
-                  <span className="link-text">Stats</span>
-                  <span className="link-text-short">Stats</span>
-                </span>
+                <span className="link-text">Stats</span>
               </NavLink>
             </li>
             <li>
@@ -109,10 +91,7 @@ const LeagueDropdown = ({ Title, teams, route }) => {
                 exact
                 to={`/${route}/news`}
                 onClick={() => handleChange()}>
-                <span>
-                  <span className="link-text">News</span>
-                  <span className="link-text-short">News</span>
-                </span>
+                <span className="link-text">News</span>
               </NavLink>
             </li>
             <li>
@@ -120,10 +99,7 @@ const LeagueDropdown = ({ Title, teams, route }) => {
                 exact
                 to={`/${route}/teams`}
                 onClick={() => handleChange()}>
-                <span>
-                  <span className="link-text">Teams</span>
-                  <span className="link-text-short">Teams</span>
-                </span>
+                <span className="link-text">Teams</span>
               </NavLink>
             </li>
           </ul>
