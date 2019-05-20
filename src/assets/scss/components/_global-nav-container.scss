@@ -1,0 +1,9 @@
+.global-nav-container {
+	@include grid-container;
+	@include margin(null auto);
+	position: relative;
+
+	@media screen and (min-width: 1024px) {
+		max-width: 1400px;
+	}
+}

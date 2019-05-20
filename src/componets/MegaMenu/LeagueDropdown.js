@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import CreateTeamsMegaMenu from "./CreateTeamsMegaMenu";
+import { sortTeamsByDivion } from "../../utils/helpers";
 
 const LeagueDropdown = ({
   Title,
@@ -37,6 +38,9 @@ const LeagueDropdown = ({
     };
   }, [open]);
 
+  const allTeams = sortTeamsByDivion(teams);
+  const NumberOfTeamsInRow = allTeams.length / 2;
+
   return (
     <li
       ref={node}
@@ -54,7 +58,7 @@ const LeagueDropdown = ({
 
       {open && (
         <div className="sports-megamenu">
-          <ul className="sports-megamenu--nav">
+          <ul className="sports-megamenu__nav">
             <li>
               <NavLink exact to={`/${route}`} onClick={() => handleChange()}>
                 Home
@@ -110,12 +114,14 @@ const LeagueDropdown = ({
             </li>
           </ul>
 
-          <div className="dropdown__content">
+          <div
+            className={`sports-megamenu__teams sports-megamenu__teams--${NumberOfTeamsInRow}`}>
             <CreateTeamsMegaMenu
-              teams={teams}
+              teams={allTeams}
               sport={route}
               route={route}
               handleChange={handleChange}
+              NumberOfTeamsInRow={NumberOfTeamsInRow}
             />
           </div>
         </div>

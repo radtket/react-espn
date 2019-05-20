@@ -8,9 +8,12 @@ const MegaMenuDivision = ({
   TeamsInDivision,
   route,
   handleChange,
+  NumberOfTeamsInRow,
 }) => {
   return (
-    <div className="dropdown__division" key={DivisionName}>
+    <div
+      className={`sports-megamenu__teams--division sports-megamenu__teams--division--${NumberOfTeamsInRow}`}
+      key={DivisionName}>
       <h6>{DivisionName}</h6>
       <nav>
         {TeamsInDivision.sort(smallestToLargest("City")).map(team => {
@@ -34,6 +37,7 @@ MegaMenuDivision.propTypes = {
   TeamsInDivision: PropTypes.arrayOf(PropTypes.object).isRequired,
   route: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
+  NumberOfTeamsInRow: PropTypes.number.isRequired,
 };
 
 export default MegaMenuDivision;

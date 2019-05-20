@@ -1,11 +1,16 @@
 import React from "react";
-import { sortTeamsByDivion } from "../../utils/helpers";
 import MegaMenuDivision from "./MegaMenuDivision";
 
-const CreateTeamsMegaMenu = ({ teams, sport, route, handleChange }) => {
-  const cols = [];
+const CreateTeamsMegaMenu = ({
+  teams,
+  sport,
+  route,
+  handleChange,
+  NumberOfTeamsInRow,
+}) => {
+  let cols = [];
 
-  return sortTeamsByDivion(teams).reduce((rows, element, index) => {
+  return teams.reduce((rows, element, index) => {
     const [DivisionName, TeamsInComponents] = element;
     const { League: LeaugeName, Conference } = TeamsInComponents[0];
 
@@ -17,10 +22,11 @@ const CreateTeamsMegaMenu = ({ teams, sport, route, handleChange }) => {
         route={route}
         Sport={sport}
         TeamsInDivision={TeamsInComponents}
+        NumberOfTeamsInRow={NumberOfTeamsInRow}
       />
     );
 
-    if ((index + 1) % 3 === 0) {
+    if ((index + 1) % NumberOfTeamsInRow === 0) {
       rows.push(
         <div
           className="row"
@@ -28,6 +34,7 @@ const CreateTeamsMegaMenu = ({ teams, sport, route, handleChange }) => {
           {cols}
         </div>
       );
+      cols = [];
     }
 
     return rows;

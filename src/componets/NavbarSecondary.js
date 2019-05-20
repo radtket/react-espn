@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const NavbarSport = ({ sport }) => {
+const NavbarSecondary = ({ sport }) => {
   return (
     <nav className="navbar-secondary">
       <div className="global-nav-container">
@@ -30,8 +30,8 @@ const NavbarSport = ({ sport }) => {
   );
 };
 
-NavbarSport.propTypes = {
+NavbarSecondary.propTypes = {
   sport: PropTypes.string.isRequired,
 };
 
-export default NavbarSport;
+export default NavbarSecondary;

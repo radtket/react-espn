@@ -21,7 +21,7 @@ const BuildSportsNav = ({ SportsArg, NotMobile, closeMobileMenu }) => {
   });
 };
 
-const GlobalNavbar = ({ sports }) => {
+const NavbarPrimary = ({ sports }) => {
   const [isHover, setIfHover] = useState(false);
   const [isItemActive, checkIfItemIsActive] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -101,7 +101,7 @@ const GlobalNavbar = ({ sports }) => {
   );
 };
 
-GlobalNavbar.propTypes = {
+NavbarPrimary.propTypes = {
   sports: PropTypes.shape({
     MLB: PropTypes.arrayOf(PropTypes.object),
     NBA: PropTypes.arrayOf(PropTypes.object),
@@ -109,8 +109,8 @@ GlobalNavbar.propTypes = {
   }),
 };
 
-GlobalNavbar.defaultProps = {
+NavbarPrimary.defaultProps = {
   sports: {},
 };
 
-export default GlobalNavbar;
+export default NavbarPrimary;

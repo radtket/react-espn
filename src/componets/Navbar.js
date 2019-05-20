@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import GlobalNavbar from "./GlobalNavbar";
-import NavbarSport from "./NavbarSport";
+import NavbarPrimary from "./NavbarPrimary";
+import NavbarSecondary from "./NavbarSecondary";
 
 const Navbar = ({ sports, hasSportNav }) => {
   return (
     <>
       <header className="global-header">
-        <GlobalNavbar sports={sports} />
-        {hasSportNav && <NavbarSport sport={hasSportNav} />}
+        <NavbarPrimary sports={sports} />
+        {hasSportNav && <NavbarSecondary sport={hasSportNav} />}
       </header>
     </>
   );

@@ -1,118 +1,166 @@
-.sports {
-	&-megamenu {
-		@include clearfix;
+$custom-grid--thirds: (columns: 3,
+	gutter: 10px);
+
+$custom-grid--quarters: (columns: 4,
+	gutter: 10px);
+
+.sports-megamenu {
+	@include clearfix;
+	display: none;
+
+	@media screen and (min-width: 1024px) {
+		@include position(absolute, null null null 0);
+		@include margin(null auto);
+		@include padding(8px);
+		background: $c-white;
+		box-shadow: $megamenu-box-shadow;
+		display: flex;
+		float: left;
+		max-height: 680px;
+		overflow: hidden;
+		transition: max-height 0.2s ease-in;
+		white-space: nowrap;
+		z-index: $zindex-sports-megamenu;
+	}
+
+
+	&__button {
+		position: relative;
+
+		&--is-open,
+		&.active {
+			&::before {
+				@include triangle("up", 16px, 8px, $c-white);
+				@include position(absolute, null null 0 50%);
+				content: "";
+				margin-left: 16px * -0.5;
+			}
+		}
+
+		.global-nav__is-hovering & {
+			color: $c-gray;
+
+			&:hover {
+				color: $c-white;
+			}
+
+			&--is-open {
+				&.active {
+					&:before {
+						border-bottom-color: $c-white !important;
+					}
+				}
+			}
+
+			&.active {
+				color: $c-white;
+
+				&:before {
+					border-bottom-color: transparent;
+				}
+			}
+		}
+	}
+
+	&__nav {
+		@media screen and (min-width: 1024px) {
+			// float: left;
+			// @include padding(null 8px);
+			background: $c-white;
+			display: block;
+			margin-right: 10px;
+		}
+
+		>li {
+			>a {
+				@media screen and (min-width: 1024px) {
+					border-radius: 3px;
+					color: $c-gray;
+					display: block;
+					font-weight: 400;
+					height: auto;
+					line-height: 1.6;
+					min-width: 200px;
+					padding: 10px;
+					position: relative;
+					text-align: left;
+
+					&:hover {
+						background-color: $c-red;
+						color: $c-white;
+					}
+				}
+			}
+		}
+	}
+
+	&__teams {
+
+		.row {
+			display: flex;
+		}
+
+		// &--3 {
+		// 	min-width: 660px;
+		// }
+
+		// &--4 {
+		// 	min-width: 860px;
+		// }
 
 		@media screen and (min-width: 1024px) {
-			@include position(absolute, null null null 0);
-			@include margin(null auto);
-			@include padding(8px null);
-			background: $c-white;
-			box-shadow: $megamenu-box-shadow;
-			// display: none;
-			display: flex;
+			background: $c-off-white;
+			border-radius: 6px;
 			float: left;
-			max-height: 680px;
+			// height: 416px;
+			// margin: 0 10px 0 0;
 			overflow: hidden;
-			transition: max-height 0.2s ease-in;
+			padding: 8px 8px 0;
+		}
+
+		&--division {
+			@include margin(10px null);
+			flex: 1 0 auto;
+			width: 200px;
+
+			// &--3 {
+			// 	@include grid-column(1, $custom-grid--thirds);
+			// }
+
+			// &--4 {
+			// 	@include grid-column(1, $custom-grid--quarters);
+			// }
+		}
+
+		h6 {
+			@include padding(null 8px);
+			color: $c-gray-medium;
+			display: block;
+			font-size: 12px;
+			font-weight: 600;
+			margin-bottom: 8px;
 			white-space: nowrap;
-			z-index: $zindex-sports-megamenu;
 		}
 
-		&__button {
-			position: relative;
+		nav {
+			>a {
+				@include padding(4px);
+				color: $c-gray;
+				line-height: 1;
 
-			&--is-open,
-			&.active {
-				&::before {
-					@include triangle("up", 16px, 8px, $c-white);
-					@include position(absolute, null null 0 50%);
-					content: "";
-					margin-left: 16px * -0.5;
-				}
-			}
-		}
-
-		&--nav {
-			@media screen and (min-width: 1024px) {
-				background: $c-white;
-				display: block;
-				float: left;
-				padding: 0 8px;
-			}
-
-			>li {
-				>a {
-					@media screen and (min-width: 1024px) {
-						border-radius: 3px;
-						color: $c-gray;
-						display: block;
-						font-weight: 400;
-						height: auto;
-						line-height: 1.6;
-						min-width: 200px;
-						padding: 10px;
-						position: relative;
-						text-align: left;
-
-						&:hover {
-							background-color: $c-red;
-							color: $c-white;
-						}
-					}
-				}
-			}
-		}
-
-		.dropdown {
-			&__content {
-				min-width: 660px;
-
-				@media screen and (min-width: 1024px) {
-					background: $c-off-white;
-					border-radius: 6px;
-					float: left;
-					height: 416px;
-					margin: 0 10px 0 0;
-					overflow: hidden;
-					padding: 8px 8px 0;
+				&:hover {
+					background-color: $c-white;
+					border-radius: 4px;
 				}
 
-				h6 {
-					@include padding(null 8px);
-					color: $c-gray-medium;
-					display: block;
-					font-size: 12px;
-					font-weight: 600;
-					margin-bottom: 8px;
-					white-space: nowrap;
+				>* {
+					vertical-align: middle;
 				}
 
-				nav {
-					>a {
-						@include padding(4px);
-						color: $c-gray;
-						line-height: 1;
-
-						&:hover {
-							background-color: $c-white;
-							border-radius: 4px;
-						}
-
-						>* {
-							vertical-align: middle;
-						}
-
-						>img {
-							@include size(24px);
-							margin-right: 8px;
-						}
-					}
+				>img {
+					@include size(24px);
+					margin-right: 8px;
 				}
-			}
-
-			&__division {
-				@include grid-column(1, $custom-grid--thirds);
-				@include margin(10px null);
 			}
 		}
 	}

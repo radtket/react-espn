@@ -1,5 +1,3 @@
-$c-gray-lite: #cbccce;
-
 .navbar-secondary {
 	background: $c-white;
 	border-radius: 1px;
@@ -23,15 +21,19 @@ $c-gray-lite: #cbccce;
 
 		>a {
 			display: table;
-			position: relative;
+
+			&::before {
+				display: none;
+			}
 
 			figure {
 				padding-right: 40px;
 				position: relative;
 
 				img {
-					@include position(absolute, 6px null null 0);
-					width: 30px;
+					@include position(absolute, 50% null null 0);
+					@include size(30px);
+					margin-top: -15px;
 				}
 			}
 
@@ -39,6 +41,39 @@ $c-gray-lite: #cbccce;
 			figcaption {
 				display: table-cell;
 				white-space: nowrap;
+			}
+		}
+	}
+
+	ul {
+		@include padding(null 10px);
+
+		>li {
+			display: inline-block;
+			line-height: $navbar-height;
+			position: relative;
+			vertical-align: top;
+
+			>a {
+				@include padding(null 10px);
+				color: $c-shark;
+				display: block;
+				font-size: 13px;
+				position: relative;
+				white-space: nowrap;
+
+				&:hover {
+					&::before {
+						background-color: $c-red;
+					}
+				}
+
+				&::before {
+					@include position(absolute, null 0 0 0);
+					background-color: transparent;
+					content: "";
+					height: $navbar-underline-height;
+				}
 			}
 		}
 	}
