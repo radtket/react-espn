@@ -13,9 +13,10 @@ const LeagueDropdown = ({
 }) => {
   const node = useRef();
   const [open, setOpen] = useState(false);
+  const allTeams = sortTeamsByDivion(teams);
+  const NumberOfTeamsInRow = allTeams.length / 2;
 
   const handleClickOutside = e => {
-    console.log("clicking anywhere");
     if (node.current.contains(e.target)) {
       // inside click
       return;
@@ -37,9 +38,6 @@ const LeagueDropdown = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [open]);
-
-  const allTeams = sortTeamsByDivion(teams);
-  const NumberOfTeamsInRow = allTeams.length / 2;
 
   return (
     <li
@@ -134,6 +132,8 @@ LeagueDropdown.propTypes = {
   Title: PropTypes.string.isRequired,
   teams: PropTypes.arrayOf(PropTypes.object).isRequired,
   route: PropTypes.string.isRequired,
+  NotMobile: PropTypes.bool.isRequired,
+  closeMobileMenu: PropTypes.func.isRequired,
 };
 
 export default LeagueDropdown;

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from "./componets/Navbar";
+import NavbarGlobal from "./componets/Navbar";
 import { isObjectEmpty } from "./utils/helpers";
 
 // Pages
@@ -38,7 +38,7 @@ const App = () => {
         <Route
           path="/:id"
           render={({ match }) => (
-            <Navbar sports={state.Teams} hasSportNav={match.params.id} />
+            <NavbarGlobal sports={state.Teams} hasSportNav={match.params.id} />
           )}
         />
 

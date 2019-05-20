@@ -4,18 +4,16 @@ import PropTypes from "prop-types";
 import NavbarPrimary from "./NavbarPrimary";
 import NavbarSecondary from "./NavbarSecondary";
 
-const Navbar = ({ sports, hasSportNav }) => {
+const NavbarGlobal = ({ sports, hasSportNav }) => {
   return (
-    <>
-      <header className="global-header">
-        <NavbarPrimary sports={sports} />
-        {hasSportNav && <NavbarSecondary sport={hasSportNav} />}
-      </header>
-    </>
+    <header className="global-header">
+      <NavbarPrimary sports={sports} />
+      {hasSportNav && <NavbarSecondary sport={hasSportNav} />}
+    </header>
   );
 };
 
-Navbar.propTypes = {
+NavbarGlobal.propTypes = {
   sports: PropTypes.shape({
     MLB: PropTypes.arrayOf(PropTypes.object),
     NBA: PropTypes.arrayOf(PropTypes.object),
@@ -24,9 +22,9 @@ Navbar.propTypes = {
   hasSportNav: PropTypes.string,
 };
 
-Navbar.defaultProps = {
+NavbarGlobal.defaultProps = {
   sports: {},
   hasSportNav: null,
 };
 
-export default Navbar;
+export default NavbarGlobal;

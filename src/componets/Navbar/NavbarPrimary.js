@@ -1,9 +1,9 @@
 import React, { useState, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { SiteLogo } from "./Icons";
-import LeagueDropdown from "./MegaMenu/LeagueDropdown";
-import useWindowDimensions from "../utils/useWindowDimensions";
+import { SiteLogo } from "../Icons";
+import LeagueDropdown from "../MegaMenu/LeagueDropdown";
+import useWindowDimensions from "../../utils/useWindowDimensions";
 
 const BuildSportsNav = ({ SportsArg, NotMobile, closeMobileMenu }) => {
   return Object.entries(SportsArg).map(sport => {
@@ -86,14 +86,11 @@ const NavbarPrimary = ({ sports }) => {
             <li>
               <span>Sports</span>
             </li>
-
-            {sports && (
-              <BuildSportsNav
-                SportsArg={sports}
-                NotMobile={NotMobile}
-                closeMobileMenu={closeMobileMenu}
-              />
-            )}
+            <BuildSportsNav
+              SportsArg={sports}
+              NotMobile={NotMobile}
+              closeMobileMenu={closeMobileMenu}
+            />
           </ul>
         </nav>
       </div>

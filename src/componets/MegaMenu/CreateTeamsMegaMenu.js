@@ -3,7 +3,6 @@ import MegaMenuDivision from "./MegaMenuDivision";
 
 const CreateTeamsMegaMenu = ({
   teams,
-  sport,
   route,
   handleChange,
   NumberOfTeamsInRow,
@@ -16,13 +15,12 @@ const CreateTeamsMegaMenu = ({
 
     cols.push(
       <MegaMenuDivision
+        key={DivisionName}
         DivisionName={DivisionName}
         handleChange={handleChange}
-        key={DivisionName}
-        route={route}
-        Sport={sport}
-        TeamsInDivision={TeamsInComponents}
         NumberOfTeamsInRow={NumberOfTeamsInRow}
+        route={route}
+        TeamsInDivision={TeamsInComponents}
       />
     );
 

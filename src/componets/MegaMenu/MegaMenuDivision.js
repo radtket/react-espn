@@ -5,10 +5,10 @@ import MegaMenuTeam from "./MegaMenuTeam";
 
 const MegaMenuDivision = ({
   DivisionName,
-  TeamsInDivision,
-  route,
   handleChange,
   NumberOfTeamsInRow,
+  route,
+  TeamsInDivision,
 }) => {
   return (
     <div
@@ -34,10 +34,10 @@ const MegaMenuDivision = ({
 
 MegaMenuDivision.propTypes = {
   DivisionName: PropTypes.string.isRequired,
-  TeamsInDivision: PropTypes.arrayOf(PropTypes.object).isRequired,
+  NumberOfTeamsInRow: PropTypes.number.isRequired,
   route: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  NumberOfTeamsInRow: PropTypes.number.isRequired,
+  TeamsInDivision: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MegaMenuDivision;

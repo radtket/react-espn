@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Navbar from "../componets/Navbar";
+import NavbarGlobal from "../componets/Navbar";
 
 const SiteHome = ({ Teams }) => {
   return (
     <>
-      <Navbar sports={Teams} />
+      <NavbarGlobal sports={Teams} />
       <h1>Site Home</h1>
     </>
   );
