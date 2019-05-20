@@ -1,0 +1,80 @@
+$hamburger-bar-width: 24px;
+$hamburger-bar-height: 3px;
+$hamburger-bar-spacing: 7px;
+
+.hamburger {
+
+	@media screen and (min-width: 1024px) {
+		display: none;
+	}
+
+	@media screen and (max-width: 1023px) {
+		@include size($hamburger-button-size);
+		background: none;
+		border-radius: 0;
+		float: left;
+		padding: 0;
+		position: relative;
+		z-index: 2;
+
+		&:hover {
+			background: transparent;
+		}
+
+
+
+
+		&__menu {
+			@include size($hamburger-bar-width, 100%);
+			margin: auto;
+			position: relative;
+
+			&--bar {
+				@include size($hamburger-bar-width, $hamburger-bar-height);
+				background: $c-white;
+				position: relative;
+				top: 12px;
+				transform: translateY($hamburger-bar-spacing);
+				transition: all 0s 0.3s;
+
+				&::after,
+				&::before {
+					@include position(absolute, null null null 0);
+					@include size($hamburger-bar-width, $hamburger-bar-height);
+					background-color: $c-white;
+					content: "";
+				}
+
+				&::before {
+					bottom: $hamburger-bar-spacing;
+					transition: bottom 0.3s 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+						transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+				}
+
+				&::after {
+					top: $hamburger-bar-spacing;
+					transition: top 0.3s 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+						transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+				}
+
+				&.animate {
+					background: transparent;
+
+					&::after {
+						top: 0;
+						transform: rotate(45deg);
+						transition: top 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+							transform 0.3s 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+					}
+
+					&::before {
+						bottom: 0;
+						transform: rotate(-45deg);
+						transition: bottom 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+							transform 0.3s 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+					}
+				}
+			}
+		}
+	}
+}

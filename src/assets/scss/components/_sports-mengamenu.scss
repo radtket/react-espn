@@ -1,0 +1,119 @@
+.sports {
+	&-megamenu {
+		@include clearfix;
+
+		@media screen and (min-width: 1024px) {
+			@include position(absolute, null null null 0);
+			@include margin(null auto);
+			@include padding(8px null);
+			background: $c-white;
+			box-shadow: $megamenu-box-shadow;
+			// display: none;
+			display: flex;
+			float: left;
+			max-height: 680px;
+			overflow: hidden;
+			transition: max-height 0.2s ease-in;
+			white-space: nowrap;
+			z-index: 1000051;
+		}
+
+		&__button {
+			position: relative;
+
+			&--is-open,
+			&.active {
+				&::before {
+					@include triangle("up", 16px, 8px, $c-white);
+					@include position(absolute, null null 0 50%);
+					content: "";
+					margin-left: 16px * -0.5;
+				}
+			}
+		}
+
+		&--nav {
+			@media screen and (min-width: 1024px) {
+				background: $c-white;
+				display: block;
+				float: left;
+				padding: 0 8px;
+			}
+
+			>li {
+				>a {
+					@media screen and (min-width: 1024px) {
+						border-radius: 3px;
+						color: $c-gray;
+						display: block;
+						font-weight: 400;
+						height: auto;
+						line-height: 1.6;
+						min-width: 200px;
+						padding: 10px;
+						position: relative;
+						text-align: left;
+
+						&:hover {
+							background-color: $c-red;
+							color: $c-white;
+						}
+					}
+				}
+			}
+		}
+
+		.dropdown {
+			&__content {
+				min-width: 660px;
+
+				@media screen and (min-width: 1024px) {
+					background: $c-off-white;
+					border-radius: 6px;
+					float: left;
+					height: 416px;
+					margin: 0 10px 0 0;
+					overflow: hidden;
+					padding: 8px 8px 0;
+				}
+
+				h6 {
+					@include padding(null 8px);
+					color: $c-gray-medium;
+					display: block;
+					font-size: 12px;
+					font-weight: 600;
+					margin-bottom: 8px;
+					white-space: nowrap;
+				}
+
+				nav {
+					>a {
+						@include padding(4px);
+						color: $c-gray;
+						line-height: 1;
+
+						&:hover {
+							background-color: $c-white;
+							border-radius: 4px;
+						}
+
+						>* {
+							vertical-align: middle;
+						}
+
+						>img {
+							@include size(24px);
+							margin-right: 8px;
+						}
+					}
+				}
+			}
+
+			&__division {
+				@include grid-column(1, $custom-grid--thirds);
+				@include margin(10px null);
+			}
+		}
+	}
+}

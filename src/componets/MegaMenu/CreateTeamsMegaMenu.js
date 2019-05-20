@@ -3,7 +3,8 @@ import { sortTeamsByDivion } from "../../utils/helpers";
 import MegaMenuDivision from "./MegaMenuDivision";
 
 const CreateTeamsMegaMenu = ({ teams, sport, route, handleChange }) => {
-  let cols = [];
+  const cols = [];
+
   return sortTeamsByDivion(teams).reduce((rows, element, index) => {
     const [DivisionName, TeamsInComponents] = element;
     const { League: LeaugeName, Conference } = TeamsInComponents[0];
@@ -18,6 +19,7 @@ const CreateTeamsMegaMenu = ({ teams, sport, route, handleChange }) => {
         TeamsInDivision={TeamsInComponents}
       />
     );
+
     if ((index + 1) % 3 === 0) {
       rows.push(
         <div
@@ -26,8 +28,8 @@ const CreateTeamsMegaMenu = ({ teams, sport, route, handleChange }) => {
           {cols}
         </div>
       );
-      cols = [];
     }
+
     return rows;
   }, []);
 };

@@ -1,0 +1,19 @@
+@keyframes slide-out {
+	0% {
+		left: -$mobile-menu-width;
+	}
+
+	100% {
+		left: 0;
+	}
+}
+
+@keyframes slide-in {
+	0% {
+		left: 0;
+	}
+
+	100% {
+		left: -$mobile-menu-width;
+	}
+}

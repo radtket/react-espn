@@ -17,4 +17,17 @@
 @import "base/typography";
 
 // Components
+@import "components/_variables";
+@import "components/animations";
+
 @import "components/navbar";
+@import "components/global-nav-secondary";
+
+@import "components/hamburger";
+@import "components/sports-mengamenu";
+
+@import "components/global-navbar";
+@import "components/global-navbar-logo";
+@import "components/global-nav";
+@import "components/global-nav-primary";
+@import "components/global-nav-secondary";

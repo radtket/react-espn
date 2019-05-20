@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import CreateTeamsMegaMenu from "./CreateTeamsMegaMenu";
 
-const LeagueDropdown = ({ Title, teams, route, NotMobile }) => {
+const LeagueDropdown = ({
+  Title,
+  teams,
+  route,
+  NotMobile,
+  closeMobileMenu,
+}) => {
   const node = useRef();
   const [open, setOpen] = useState(false);
 
@@ -19,6 +25,7 @@ const LeagueDropdown = ({ Title, teams, route, NotMobile }) => {
 
   const handleChange = () => {
     setOpen(false);
+    closeMobileMenu();
   };
 
   useEffect(() => {

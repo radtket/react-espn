@@ -5,7 +5,7 @@ import { SiteLogo } from "./Icons";
 import LeagueDropdown from "./MegaMenu/LeagueDropdown";
 import useWindowDimensions from "../utils/useWindowDimensions";
 
-const BuildSportsNav = ({ SportsArg, NotMobile }) => {
+const BuildSportsNav = ({ SportsArg, NotMobile, closeMobileMenu }) => {
   return Object.entries(SportsArg).map(sport => {
     const [name, teams] = sport;
     return (
@@ -15,6 +15,7 @@ const BuildSportsNav = ({ SportsArg, NotMobile }) => {
         route={name}
         key={sport}
         NotMobile={NotMobile}
+        closeMobileMenu={closeMobileMenu}
       />
     );
   });
@@ -23,7 +24,13 @@ const BuildSportsNav = ({ SportsArg, NotMobile }) => {
 const GlobalNavbar = ({ sports }) => {
   const [isHover, setIfHover] = useState(false);
   const [isItemActive, checkIfItemIsActive] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const { width: windowWidth } = useWindowDimensions();
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   useLayoutEffect(() => {
     let buttons;
@@ -40,9 +47,18 @@ const GlobalNavbar = ({ sports }) => {
   return (
     <nav className="global-navbar">
       <div className="global-nav-container">
-        <a href="www.gooogle.com" className="global-nav-mobile-trigger">
-          <span>Menu</span>
-        </a>
+        <button
+          className="hamburger"
+          type="button"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <div className="hamburger__menu">
+            <div
+              className={`hamburger__menu--bar ${
+                mobileMenuOpen ? "animate" : ""
+              }`}
+            />
+          </div>
+        </button>
 
         <figure className="global-navbar__logo">
           <Link to="/">
@@ -50,7 +66,10 @@ const GlobalNavbar = ({ sports }) => {
           </Link>
         </figure>
 
-        <nav className="global-nav">
+        <nav
+          className={`global-nav ${
+            mobileMenuOpen && !NotMobile ? "global-nav__open" : ""
+          }`}>
           <ul
             className={
               isHover && isItemActive && NotMobile
@@ -68,7 +87,11 @@ const GlobalNavbar = ({ sports }) => {
             </li>
 
             {sports && (
-              <BuildSportsNav SportsArg={sports} NotMobile={NotMobile} />
+              <BuildSportsNav
+                SportsArg={sports}
+                NotMobile={NotMobile}
+                closeMobileMenu={closeMobileMenu}
+              />
             )}
           </ul>
         </nav>

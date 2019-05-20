@@ -1,0 +1,45 @@
+$c-gray-lite: #cbccce;
+
+.global-nav-secondary {
+	// display: none;
+	background: $c-white;
+	border-radius: 1px;
+	box-shadow: 0 4px 2px -2px $c-black-30;
+	font-size: 13px;
+	overflow: visible;
+	position: relative;
+	z-index: 1000042;
+
+	.sport {
+		padding-right: 25px;
+		position: relative;
+
+		&::after {
+			@include position(absolute, 50% 8px null null);
+			border-left: 1px solid $c-gray-lite;
+			content: "";
+			height: 25px;
+			margin-top: -13px;
+		}
+
+		&__logo {
+			padding-right: 40px;
+			position: relative;
+
+			img {
+				@include position(absolute, 6px null null 0);
+				width: 30px;
+			}
+		}
+
+		>a {
+			display: table;
+			position: relative;
+
+			span {
+				display: table-cell;
+				white-space: nowrap;
+			}
+		}
+	}
+}

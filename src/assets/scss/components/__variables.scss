@@ -1,0 +1,35 @@
+$c-black: #000;
+$c-white: #fff;
+
+$c-black-30: rgba($c-black, 0.3);
+
+$c-shark: #2b2c2d;
+
+$navbar-bg: $c-shark;
+$navbar-box-shadow: 0 4px 2px -2px $c-black-30;
+$navbar-height: 44px;
+
+$navbar-underline-height: 4px;
+
+$navbar-logo-border: 10px;
+$navbar-logo--height: 20px;
+$navbar-logo--width: 81px;
+
+$megamenu-box-shadow: 0 5px 10px $c-black-30;
+$hamburger-button-size: $navbar-height;
+
+$c-red: #d00;
+$c-red-dark: #b40000;
+
+$c-gray-athens: #edeef0;
+
+$c-gray-lite: #cbccce;
+$c-gray: #6c6d6f;
+$c-gray-medium: #48494a;
+
+$c-off-white: #f1f2f3;
+
+$mobile-menu-width: 429px;
+
+$custom-grid--thirds: (columns: 3,
+  gutter: 10px);
