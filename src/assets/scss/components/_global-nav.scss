@@ -1,27 +1,5 @@
 .global-nav {
-	@media screen and (max-width: 1023px) {
-		@include position(fixed, 44px null null -1000px);
-		animation: slide-in 0.5s backwards;
-		background: $c-white;
-		box-shadow: 2px 3px 4px 0 $c-black-30;
-		display: block;
-		height: calc(100vh - 44px);
-		max-width: $mobile-menu-width;
-		width: 100%;
 
-		&__open {
-			animation: slide-out 0.5s forwards;
-		}
-	}
-
-	@media screen and (min-width: 1024px) {
-		height: $navbar-height;
-		overflow: visible;
-		padding-left: 128px;
-		padding-right: $navbar-logo--width;
-		transition: height 0.2s ease-in-out;
-		z-index: 1000040;
-	}
 
 	// .global-nav-container
 	&-container {
@@ -44,7 +22,7 @@
 
 			>li {
 				display: inline-block;
-				line-height: 44px;
+				line-height: $navbar-height;
 				list-style-type: none;
 				position: relative;
 				text-align: center;
@@ -100,74 +78,6 @@
 					&:before {
 						border-bottom-color: transparent;
 					}
-				}
-			}
-		}
-	}
-
-	&__item {
-		position: relative;
-	}
-
-	>ul {
-		@include clearfix;
-		display: block;
-
-		@media screen and (min-width: 1024px) {
-			display: inline-block;
-		}
-
-		>li {
-
-			@media screen and (min-width: 1024px) {
-				display: block;
-				float: left;
-				line-height: $navbar-height;
-				list-style-type: none;
-			}
-
-
-			.global-nav__label {
-				border-bottom: 1px solid $c-gray-athens;
-				color: $c-gray;
-				display: block;
-				height: 40px;
-				line-height: 40px;
-				margin: 0 16px;
-				overflow: hidden;
-
-
-				@media screen and (min-width: 1024px) {
-					display: none;
-				}
-			}
-
-			>a {
-				outline: 0;
-
-				@media screen and (max-width: 1023px) {
-					border-bottom: 1px solid $c-gray-athens;
-					color: $c-black;
-					display: block;
-					font-weight: 600;
-					height: 44px;
-					line-height: 44px;
-					margin: 0 16px;
-					position: relative;
-
-					&:hover {
-						color: $c-black;
-					}
-				}
-
-				@media screen and (min-width: 1024px) {
-					@include padding(null 10px);
-					animation: navTransition 0.2s ease-in;
-					animation-fill-mode: forwards;
-					color: $c-white;
-					cursor: pointer;
-					display: block;
-					transition: opacity 0.2s ease-out;
 				}
 			}
 		}

@@ -1,0 +1,149 @@
+.navbar-primary {
+	background: $navbar-bg;
+	font-size: 14px;
+	position: relative;
+	z-index: $zindex-navbar-primary;
+
+	&__logo {
+		@include size($navbar-logo--width + ($navbar-logo-border * 2), $navbar-height);
+		float: left;
+		position: relative;
+
+		&::before,
+		&::after {
+			content: "";
+			display: block;
+			height: 100%;
+			transform: skew(-25deg, 0);
+		}
+
+		&::before {
+			@include position(absolute, 0 (-$navbar-logo-border) null 0);
+			background: $c-red;
+
+			@media (max-width: 1455px) {
+				left: -($hamburger-button-size + $navbar-logo-border);
+			}
+		}
+
+		&::after {
+			@include position(absolute, 0 (-$navbar-logo-border * 2) null (-$navbar-logo-border));
+			background: $c-red-dark;
+			z-index: $zindex-navbar-primary--logo-bg;
+		}
+
+		>a {
+			display: block;
+			height: $navbar-height;
+			margin: auto;
+
+			@media (min-width: 1456px) {
+				width: $navbar-logo--width + ($navbar-logo-border * 3);
+			}
+
+			svg {
+				@include position(relative, (($navbar-height - $navbar-logo--height) / 2) null);
+				display: block;
+				fill: $c-white;
+				height: $navbar-logo--height;
+				margin: auto;
+			}
+		}
+	}
+
+	&__nav {
+		display: block;
+		height: calc(100vh - 44px);
+		width: 100%;
+
+		@media screen and (max-width: 1023px) {
+			@include position(fixed, $navbar-height null null -1000px);
+			animation: slide-in 0.5s backwards;
+			background: $c-white;
+			box-shadow: 2px 3px 4px 0 $c-black-30;
+			max-width: $mobile-menu-width;
+		}
+
+		@media screen and (min-width: 1024px) {
+			@include padding(null $navbar-logo--width null 128px);
+			height: $navbar-height;
+			overflow: visible;
+			transition: height 0.2s ease-in-out;
+			z-index: $zindex-navbar-primary--nav;
+		}
+
+
+		&--drawer-open {
+			@media screen and (max-width: 1023px) {
+				animation: slide-out 0.5s forwards !important;
+			}
+		}
+
+		>ul {
+			@include clearfix;
+			display: block;
+
+			@media screen and (min-width: 1024px) {
+				display: inline-block;
+			}
+
+			>li {
+				position: relative;
+
+				@media screen and (min-width: 1024px) {
+					display: block;
+					float: left;
+					line-height: $navbar-height;
+					list-style-type: none;
+				}
+
+				// "Sports" Label for drawer
+				>span {
+					@media screen and (min-width: 1024px) {
+						display: none;
+					}
+
+					@media screen and (max-width: 1023px) {
+						color: $c-gray;
+						display: block;
+						overflow: hidden;
+					}
+				}
+
+				>span,
+				>a {
+					@media screen and (max-width: 1023px) {
+						@include margin(null 16px);
+						border-bottom: 1px solid $c-gray-athens;
+						height: $navbar-height;
+						line-height: $navbar-height;
+					}
+				}
+
+				>a {
+					cursor: pointer;
+					display: block;
+					outline: 0;
+
+					@media screen and (max-width: 1023px) {
+						color: $c-black;
+						font-weight: 600;
+						position: relative;
+
+						&:hover {
+							color: $c-black;
+						}
+					}
+
+					@media screen and (min-width: 1024px) {
+						@include padding(null 10px);
+						animation: navTransition 0.2s ease-in;
+						animation-fill-mode: forwards;
+						color: $c-white;
+						transition: opacity 0.2s ease-out;
+					}
+				}
+			}
+		}
+	}
+}

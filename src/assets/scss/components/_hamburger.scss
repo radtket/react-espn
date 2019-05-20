@@ -15,7 +15,7 @@ $hamburger-bar-spacing: 7px;
 		float: left;
 		padding: 0;
 		position: relative;
-		z-index: 2;
+		z-index: $zindex-navbar-primary--hamburger;
 
 		&:hover {
 			background: transparent;

@@ -40,7 +40,6 @@ const LeagueDropdown = ({
   return (
     <li
       ref={node}
-      className="global-nav__item"
       onMouseEnter={() => NotMobile && setOpen(true)}
       onMouseLeave={() => NotMobile && handleChange()}>
       <NavLink
@@ -50,7 +49,7 @@ const LeagueDropdown = ({
         exact
         to={`/${route}`}
         onClick={() => handleChange()}>
-        <span className="link-text"> {Title}</span>
+        {Title}
       </NavLink>
 
       {open && (
@@ -58,7 +57,7 @@ const LeagueDropdown = ({
           <ul className="sports-megamenu--nav">
             <li>
               <NavLink exact to={`/${route}`} onClick={() => handleChange()}>
-                <span className="link-text">Home</span>
+                Home
               </NavLink>
             </li>
             <li>
@@ -66,7 +65,7 @@ const LeagueDropdown = ({
                 exact
                 to={`/${route}/scores`}
                 onClick={() => handleChange()}>
-                <span className="link-text">Scores</span>
+                Scores
               </NavLink>
             </li>
             <li>
@@ -74,7 +73,7 @@ const LeagueDropdown = ({
                 exact
                 to={`/${route}/schedule`}
                 onClick={() => handleChange()}>
-                <span className="link-text">Schedule</span>
+                Schedule
               </NavLink>
             </li>
             <li>
@@ -82,7 +81,7 @@ const LeagueDropdown = ({
                 exact
                 to={`/${route}/standings`}
                 onClick={() => handleChange()}>
-                <span className="link-text">Standings</span>
+                Standings
               </NavLink>
             </li>
             <li>
@@ -90,7 +89,7 @@ const LeagueDropdown = ({
                 exact
                 to={`/${route}/stats`}
                 onClick={() => handleChange()}>
-                <span className="link-text">Stats</span>
+                Stats
               </NavLink>
             </li>
             <li>
@@ -98,7 +97,7 @@ const LeagueDropdown = ({
                 exact
                 to={`/${route}/news`}
                 onClick={() => handleChange()}>
-                <span className="link-text">News</span>
+                News
               </NavLink>
             </li>
             <li>
@@ -106,7 +105,7 @@ const LeagueDropdown = ({
                 exact
                 to={`/${route}/teams`}
                 onClick={() => handleChange()}>
-                <span className="link-text">Teams</span>
+                Teams
               </NavLink>
             </li>
           </ul>

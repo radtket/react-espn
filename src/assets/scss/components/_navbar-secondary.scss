@@ -1,18 +1,16 @@
 $c-gray-lite: #cbccce;
 
-.global-nav-secondary {
-	// display: none;
+.navbar-secondary {
 	background: $c-white;
 	border-radius: 1px;
 	box-shadow: 0 4px 2px -2px $c-black-30;
 	font-size: 13px;
 	overflow: visible;
 	position: relative;
-	z-index: 1000042;
+	z-index: $zindex-navbar-secondary;
 
-	.sport {
+	&__logo {
 		padding-right: 25px;
-		position: relative;
 
 		&::after {
 			@include position(absolute, 50% 8px null null);
@@ -22,21 +20,23 @@ $c-gray-lite: #cbccce;
 			margin-top: -13px;
 		}
 
-		&__logo {
-			padding-right: 40px;
-			position: relative;
-
-			img {
-				@include position(absolute, 6px null null 0);
-				width: 30px;
-			}
-		}
 
 		>a {
 			display: table;
 			position: relative;
 
-			span {
+			figure {
+				padding-right: 40px;
+				position: relative;
+
+				img {
+					@include position(absolute, 6px null null 0);
+					width: 30px;
+				}
+			}
+
+			figure,
+			figcaption {
 				display: table-cell;
 				white-space: nowrap;
 			}

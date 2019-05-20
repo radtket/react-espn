@@ -4,18 +4,18 @@ import PropTypes from "prop-types";
 
 const NavbarSport = ({ sport }) => {
   return (
-    <nav id="global-nav-secondary" className="global-nav-secondary">
+    <nav className="navbar-secondary">
       <div className="global-nav-container">
         <ul>
-          <li className="sport">
+          <li className="navbar-secondary__logo">
             <Link to={`/${sport}`}>
-              <span className="sport__logo ">
+              <figure>
                 <img
                   src={`https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/${sport}.png?w=100&h=100&transparent=true`}
                   alt={`${sport} logo`}
                 />
-              </span>
-              <span>{sport}</span>
+              </figure>
+              <figcaption>{sport}</figcaption>
             </Link>
           </li>
           <li>

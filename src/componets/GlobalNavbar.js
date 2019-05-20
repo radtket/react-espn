@@ -45,7 +45,7 @@ const GlobalNavbar = ({ sports }) => {
   const NotMobile = windowWidth >= 1023;
 
   return (
-    <nav className="global-navbar">
+    <section className="navbar-primary">
       <div className="global-nav-container">
         <button
           className="hamburger"
@@ -60,15 +60,17 @@ const GlobalNavbar = ({ sports }) => {
           </div>
         </button>
 
-        <figure className="global-navbar__logo">
+        <figure className="navbar-primary__logo">
           <Link to="/">
             <SiteLogo />
           </Link>
         </figure>
 
         <nav
-          className={`global-nav ${
-            mobileMenuOpen && !NotMobile ? "global-nav__open" : ""
+          className={`navbar-primary__nav navbar-primary__drawer ${
+            mobileMenuOpen && !NotMobile
+              ? "navbar-primary__nav--drawer-open"
+              : ""
           }`}>
           <ul
             className={
@@ -80,10 +82,9 @@ const GlobalNavbar = ({ sports }) => {
             onMouseLeave={() =>
               isItemActive && NotMobile && setIfHover(!isHover)
             }>
+            {/* Drawer Label */}
             <li>
-              <span className="global-nav__label">
-                <span className="link-text">Sports</span>
-              </span>
+              <span>Sports</span>
             </li>
 
             {sports && (
@@ -96,7 +97,7 @@ const GlobalNavbar = ({ sports }) => {
           </ul>
         </nav>
       </div>
-    </nav>
+    </section>
   );
 };
 

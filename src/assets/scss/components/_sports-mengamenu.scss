@@ -15,7 +15,7 @@
 			overflow: hidden;
 			transition: max-height 0.2s ease-in;
 			white-space: nowrap;
-			z-index: 1000051;
+			z-index: $zindex-sports-megamenu;
 		}
 
 		&__button {

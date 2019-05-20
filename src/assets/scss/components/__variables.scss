@@ -32,4 +32,14 @@ $c-off-white: #f1f2f3;
 $mobile-menu-width: 429px;
 
 $custom-grid--thirds: (columns: 3,
-  gutter: 10px);
+	gutter: 10px);
+
+$zindex-navbar-primary--logo-bg: -1;
+$zindex-navbar-primary--hamburger: 2;
+$zindex-navbar-primary: 1000045;
+$zindex-navbar-primary--nav: 1000040; // Should be able to remove
+
+
+$zindex-navbar-secondary: 1000042;
+
+$zindex-sports-megamenu: 1000051;
