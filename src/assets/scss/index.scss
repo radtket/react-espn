@@ -1,5 +1,6 @@
 @import "~bourbon/core/bourbon";
 @import "~bourbon-neat/core/neat";
+@import "~slick-carousel/slick/slick.scss";
 @import "normalize";
 
 // Settings
@@ -20,7 +21,6 @@
 @import "components/_variables";
 @import "components/animations";
 
-@import "components/navbar-secondary";
 
 @import "components/hamburger";
 @import "components/sports-mengamenu";
@@ -29,3 +29,6 @@
 @import "components/navbar-secondary";
 @import "components/global-nav-container";
 @import "components/navbar-primary";
+@import "components/navbar-secondary";
+@import "components/navbar-scoreboard";
+@import "./slick-theme"

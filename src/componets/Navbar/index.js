@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 
 import NavbarPrimary from "./NavbarPrimary";
 import NavbarSecondary from "./NavbarSecondary";
+import NabvarScoreboard from "./NabvarScoreboard";
 
 const NavbarGlobal = ({ sports, hasSportNav }) => {
   return (
     <header className="global-header">
+      <NabvarScoreboard />
       <NavbarPrimary sports={sports} />
       {hasSportNav && <NavbarSecondary sport={hasSportNav} />}
     </header>
