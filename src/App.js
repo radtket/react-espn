@@ -30,15 +30,34 @@ const App = () => {
     isObjectEmpty(state.Teams) && getTeamsData();
   });
 
+  const { MLB, NBA, NFL } = state.Teams;
+
   return (
     <Router>
       <>
         <Route path="/" exact render={() => <SiteHome {...state} />} />
 
         <Route
-          path="/:id"
-          render={({ match }) => (
-            <NavbarGlobal sports={state.Teams} hasSportNav={match.params.id} />
+          exact
+          path="/:id/:pathParam1?"
+          render={props => (
+            <NavbarGlobal
+              sports={state.Teams}
+              hasSportNav={props.match.params.id}
+              {...props}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path="/:id/teams/:pathParam2"
+          render={props => (
+            <NavbarGlobal
+              sports={state.Teams}
+              hasSportNav={props.match.params.id}
+              {...props}
+            />
           )}
         />
 
@@ -47,7 +66,7 @@ const App = () => {
           render={props => {
             return (
               <ProviderMLB>
-                <RoutesMLB {...props} sport="MLB" />
+                <RoutesMLB {...props} sport="MLB" teams={MLB} />
               </ProviderMLB>
             );
           }}
@@ -56,7 +75,7 @@ const App = () => {
           path="/NBA"
           render={props => (
             <ProviderNBA>
-              <RoutesNBA {...props} sport="NBA" />
+              <RoutesNBA {...props} sport="NBA" teams={NBA} />
             </ProviderNBA>
           )}
         />
@@ -64,7 +83,7 @@ const App = () => {
           path="/NFL"
           render={props => (
             <ProviderNFL>
-              <RoutesNFL {...props} sport="NFL" />
+              <RoutesNFL {...props} sport="NFL" teams={NFL} />
             </ProviderNFL>
           )}
         />

@@ -45,36 +45,40 @@
 		}
 	}
 
-	ul {
-		@include padding(null 10px);
+	.global-nav-container {
+		ul {
+			@include padding(null 10px);
 
-		>li {
-			display: inline-block;
-			line-height: $navbar-height;
-			position: relative;
-			vertical-align: top;
-
-			>a {
-				@include padding(null 10px);
-				color: $c-shark;
-				display: block;
-				font-size: 13px;
+			>li {
+				display: inline-block;
+				line-height: $navbar-height;
 				position: relative;
-				white-space: nowrap;
+				vertical-align: top;
 
-				&:hover {
-					&::before {
-						background-color: $c-red;
+				>a {
+					@include padding(null 10px);
+					color: $c-shark;
+					display: block;
+					font-size: 13px;
+					position: relative;
+					white-space: nowrap;
+
+					&:hover {
+						&::before {
+							background-color: $c-red;
+						}
 					}
-				}
 
-				&::before {
-					@include position(absolute, null 0 0 0);
-					background-color: transparent;
-					content: "";
-					height: $navbar-underline-height;
+					&::before {
+						@include position(absolute, null 0 0 0);
+						background-color: transparent;
+						content: "";
+						height: $navbar-underline-height;
+					}
 				}
 			}
 		}
 	}
+
+
 }

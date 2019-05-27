@@ -3,12 +3,22 @@ import PropTypes from "prop-types";
 
 import NavbarPrimary from "./NavbarPrimary";
 import NavbarSecondary from "./NavbarSecondary";
+import NavbarTeam from "./NavbarTeam";
 
-const NavbarGlobal = ({ sports, hasSportNav }) => {
+const NavbarGlobal = ({ sports, hasSportNav, match }) => {
   return (
     <header className="global-header">
       <NavbarPrimary sports={sports} />
-      {hasSportNav && <NavbarSecondary sport={hasSportNav} />}
+      {hasSportNav && !match.params.pathParam2 && (
+        <NavbarSecondary sport={hasSportNav} />
+      )}
+      {sports[hasSportNav] && match.params.pathParam2 && (
+        <NavbarTeam
+          {...sports[hasSportNav].find(
+            team => team.Key === match.params.pathParam2
+          )}
+        />
+      )}
     </header>
   );
 };
@@ -20,11 +30,17 @@ NavbarGlobal.propTypes = {
     NFL: PropTypes.arrayOf(PropTypes.object),
   }),
   hasSportNav: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      pathParam2: PropTypes.string,
+    }),
+  }),
 };
 
 NavbarGlobal.defaultProps = {
   sports: {},
   hasSportNav: null,
+  match: null,
 };
 
 export default NavbarGlobal;
