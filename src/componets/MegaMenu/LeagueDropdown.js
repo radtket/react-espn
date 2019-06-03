@@ -48,7 +48,6 @@ const LeagueDropdown = ({
         className={`sports-megamenu__button ${
           open ? "sports-megamenu__button--is-open" : ""
         }`}
-        exact
         to={`/${route}`}
         onClick={() => handleChange()}>
         {Title}

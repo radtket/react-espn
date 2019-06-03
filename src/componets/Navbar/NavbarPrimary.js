@@ -8,12 +8,13 @@ import useWindowDimensions from "../../utils/useWindowDimensions";
 const BuildSportsNav = ({ SportsArg, NotMobile, closeMobileMenu }) => {
   return Object.entries(SportsArg).map(sport => {
     const [name, teams] = sport;
+
     return (
       <LeagueDropdown
         Title={name}
         teams={teams}
         route={name}
-        key={sport}
+        key={name}
         NotMobile={NotMobile}
         closeMobileMenu={closeMobileMenu}
       />

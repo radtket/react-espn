@@ -6,15 +6,17 @@ import NavbarSecondary from "./NavbarSecondary";
 import NavbarTeam from "./NavbarTeam";
 
 const NavbarGlobal = ({ sports, hasSportNav, match }) => {
+  const LeaugeSportsTeam = sports[hasSportNav];
+
   return (
     <header className="global-header">
       <NavbarPrimary sports={sports} />
       {hasSportNav && !match.params.pathParam2 && (
         <NavbarSecondary sport={hasSportNav} />
       )}
-      {sports[hasSportNav] && match.params.pathParam2 && (
+      {LeaugeSportsTeam && match.params.pathParam2 && (
         <NavbarTeam
-          {...sports[hasSportNav].find(
+          {...LeaugeSportsTeam.find(
             team => team.Key === match.params.pathParam2
           )}
         />
