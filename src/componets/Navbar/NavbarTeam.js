@@ -33,10 +33,14 @@ const NavbarTeam = ({ City, Name, WikipediaLogoUrl, sport, Key }) => {
       <div className="global-nav-container">
         <ul>
           <li>
-            <NavLink to={`/${sport}/teams/${Key}`}>Home</NavLink>
+            <NavLink exact to={`/${sport}/teams/${Key}`}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to={`/${sport}/teams/${Key}/schedule`}>Schedule</NavLink>
+            <NavLink exact to={`/${sport}/teams/${Key}/schedule`}>
+              Schedule
+            </NavLink>
           </li>
         </ul>
       </div>

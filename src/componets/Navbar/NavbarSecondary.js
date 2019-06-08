@@ -19,10 +19,14 @@ const NavbarSecondary = ({ sport }) => {
             </Link>
           </li>
           <li>
-            <NavLink to={`/${sport}`}>Home</NavLink>
+            <NavLink exact to={`/${sport}`}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to={`/${sport}/standings`}>Standings</NavLink>
+            <NavLink exact to={`/${sport}/standings`}>
+              Standings
+            </NavLink>
           </li>
         </ul>
       </div>
