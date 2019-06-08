@@ -7,7 +7,7 @@ import { isObjectEmpty } from "./utils/helpers";
 import SiteHome from "./pages/SiteHome";
 
 // Routes - Sport
-import { RoutesMLB, RoutesNBA, RoutesNFL } from "./routes";
+import { RoutesMLB, RoutesNBA, RoutesNFL, RoutesSportTeam } from "./routes";
 
 // Stores
 import { ProviderMLB, ProviderNBA, ProviderNFL, StoreGlobal } from "./stores";
@@ -41,6 +41,7 @@ const App = () => {
           exact
           path="/:id/:pathParam1?"
           render={props => {
+            // eslint-disable-next-line react/prop-types
             const { match } = props;
             const { id } = match.params;
             return <NavbarGlobal sports={state.Teams} sport={id} {...props} />;
@@ -48,32 +49,7 @@ const App = () => {
         />
 
         {/* Sport Teams Routes */}
-        <Route
-          path="/:id/teams/:pathParamSportTeam"
-          render={props => {
-            const { match } = props;
-            const { id, pathParamSportTeam } = match.params;
-            return (
-              <>
-                <NavbarGlobal sports={state.Teams} sport={id} {...props} />
-                <Route
-                  exact
-                  path="/:id/teams/:pathParamSportTeam"
-                  render={() => (
-                    <h1 team={pathParamSportTeam}>Teams Home: Fuck Yeah!</h1>
-                  )}
-                />
-                <Route
-                  exact
-                  path="/:id/teams/:pathParamSportTeam/schedule"
-                  render={() => (
-                    <h1 team={pathParamSportTeam}>Schedule: Fuck Yeah!</h1>
-                  )}
-                />
-              </>
-            );
-          }}
-        />
+        <RoutesSportTeam Teams={state.Teams} />
 
         <Route
           path="/MLB"
