@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
-const NavbarTeam = ({ City, Name, WikipediaLogoUrl }) => {
+const NavbarTeam = ({ City, Name, WikipediaLogoUrl, sport, Key }) => {
   return (
     <nav className="navbar-secondary">
       <div className="clubhouse-header">
@@ -28,13 +29,26 @@ const NavbarTeam = ({ City, Name, WikipediaLogoUrl }) => {
           </figcaption>
         </div>
       </div>
+
+      <div className="global-nav-container">
+        <ul>
+          <li>
+            <NavLink to={`/${sport}/teams/${Key}`}>Home</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/${sport}/teams/${Key}/schedule`}>Schedule</NavLink>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
 
 NavbarTeam.propTypes = {
   City: PropTypes.string.isRequired,
+  Key: PropTypes.string.isRequired,
   Name: PropTypes.string.isRequired,
+  sport: PropTypes.string.isRequired,
   WikipediaLogoUrl: PropTypes.string.isRequired,
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const NavbarSecondary = ({ sport }) => {
@@ -19,10 +19,10 @@ const NavbarSecondary = ({ sport }) => {
             </Link>
           </li>
           <li>
-            <Link to={`/${sport}`}>Home</Link>
+            <NavLink to={`/${sport}`}>Home</NavLink>
           </li>
           <li>
-            <Link to={`/${sport}/standings`}>Standings</Link>
+            <NavLink to={`/${sport}/standings`}>Standings</NavLink>
           </li>
         </ul>
       </div>

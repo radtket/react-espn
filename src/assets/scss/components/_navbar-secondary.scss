@@ -18,8 +18,7 @@
 			margin-top: -13px;
 		}
 
-
-		>a {
+		> a {
 			display: table;
 
 			&::before {
@@ -49,13 +48,13 @@
 		ul {
 			@include padding(null 10px);
 
-			>li {
+			> li {
 				display: inline-block;
 				line-height: $navbar-height;
 				position: relative;
 				vertical-align: top;
 
-				>a {
+				> a {
 					@include padding(null 10px);
 					color: $c-shark;
 					display: block;
@@ -63,6 +62,7 @@
 					position: relative;
 					white-space: nowrap;
 
+					&.active,
 					&:hover {
 						&::before {
 							background-color: $c-red;
@@ -79,6 +79,4 @@
 			}
 		}
 	}
-
-
 }

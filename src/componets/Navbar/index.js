@@ -16,6 +16,7 @@ const NavbarGlobal = ({ sports, hasSportNav, match }) => {
       )}
       {LeaugeSportsTeam && match.params.pathParam2 && (
         <NavbarTeam
+          sport={hasSportNav}
           {...LeaugeSportsTeam.find(
             team => team.Key === match.params.pathParam2
           )}

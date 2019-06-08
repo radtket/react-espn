@@ -36,29 +36,45 @@ const App = () => {
     <Router>
       <>
         <Route path="/" exact render={() => <SiteHome {...state} />} />
-
         <Route
           exact
           path="/:id/:pathParam1?"
-          render={props => (
-            <NavbarGlobal
-              sports={state.Teams}
-              hasSportNav={props.match.params.id}
-              {...props}
-            />
-          )}
+          render={props => {
+            const { match } = props;
+            const { id } = match.params;
+            return (
+              <NavbarGlobal sports={state.Teams} hasSportNav={id} {...props} />
+            );
+          }}
         />
 
         <Route
-          exact
           path="/:id/teams/:pathParam2"
-          render={props => (
-            <NavbarGlobal
-              sports={state.Teams}
-              hasSportNav={props.match.params.id}
-              {...props}
-            />
-          )}
+          render={props => {
+            const { match } = props;
+            const { id, pathParam2 } = match.params;
+            return (
+              <>
+                <NavbarGlobal
+                  sports={state.Teams}
+                  hasSportNav={id}
+                  {...props}
+                />
+                <Route
+                  exact
+                  path="/:id/teams/:pathParam2"
+                  render={() => (
+                    <h1 team={pathParam2}>Teams Home: Fuck Yeah!</h1>
+                  )}
+                />
+                <Route
+                  exact
+                  path="/:id/teams/:pathParam2/schedule"
+                  render={() => <h1 team={pathParam2}>Schedule: Fuck Yeah!</h1>}
+                />
+              </>
+            );
+          }}
         />
 
         <Route
