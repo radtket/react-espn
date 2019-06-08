@@ -5,20 +5,20 @@ import NavbarPrimary from "./NavbarPrimary";
 import NavbarSecondary from "./NavbarSecondary";
 import NavbarTeam from "./NavbarTeam";
 
-const NavbarGlobal = ({ sports, hasSportNav, match }) => {
-  const LeaugeSportsTeam = sports[hasSportNav];
+const NavbarGlobal = ({ sports, sport, match }) => {
+  const LeaugeSportsTeam = sports[sport];
 
   return (
     <header className="global-header">
       <NavbarPrimary sports={sports} />
-      {hasSportNav && !match.params.pathParam2 && (
-        <NavbarSecondary sport={hasSportNav} />
+      {sport && !match.params.pathParamSportTeam && (
+        <NavbarSecondary sport={sport} />
       )}
-      {LeaugeSportsTeam && match.params.pathParam2 && (
+      {LeaugeSportsTeam && match.params.pathParamSportTeam && (
         <NavbarTeam
-          sport={hasSportNav}
+          sport={sport}
           {...LeaugeSportsTeam.find(
-            team => team.Key === match.params.pathParam2
+            team => team.Key === match.params.pathParamSportTeam
           )}
         />
       )}
@@ -32,17 +32,17 @@ NavbarGlobal.propTypes = {
     NBA: PropTypes.arrayOf(PropTypes.object),
     NFL: PropTypes.arrayOf(PropTypes.object),
   }),
-  hasSportNav: PropTypes.string,
+  sport: PropTypes.string,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      pathParam2: PropTypes.string,
+      pathParamSportTeam: PropTypes.string,
     }),
   }),
 };
 
 NavbarGlobal.defaultProps = {
   sports: {},
-  hasSportNav: null,
+  sport: null,
   match: null,
 };
 

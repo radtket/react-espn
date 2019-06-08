@@ -36,41 +36,39 @@ const App = () => {
     <Router>
       <>
         <Route path="/" exact render={() => <SiteHome {...state} />} />
+
         <Route
           exact
           path="/:id/:pathParam1?"
           render={props => {
             const { match } = props;
             const { id } = match.params;
-            return (
-              <NavbarGlobal sports={state.Teams} hasSportNav={id} {...props} />
-            );
+            return <NavbarGlobal sports={state.Teams} sport={id} {...props} />;
           }}
         />
 
+        {/* Sport Teams Routes */}
         <Route
-          path="/:id/teams/:pathParam2"
+          path="/:id/teams/:pathParamSportTeam"
           render={props => {
             const { match } = props;
-            const { id, pathParam2 } = match.params;
+            const { id, pathParamSportTeam } = match.params;
             return (
               <>
-                <NavbarGlobal
-                  sports={state.Teams}
-                  hasSportNav={id}
-                  {...props}
-                />
+                <NavbarGlobal sports={state.Teams} sport={id} {...props} />
                 <Route
                   exact
-                  path="/:id/teams/:pathParam2"
+                  path="/:id/teams/:pathParamSportTeam"
                   render={() => (
-                    <h1 team={pathParam2}>Teams Home: Fuck Yeah!</h1>
+                    <h1 team={pathParamSportTeam}>Teams Home: Fuck Yeah!</h1>
                   )}
                 />
                 <Route
                   exact
-                  path="/:id/teams/:pathParam2/schedule"
-                  render={() => <h1 team={pathParam2}>Schedule: Fuck Yeah!</h1>}
+                  path="/:id/teams/:pathParamSportTeam/schedule"
+                  render={() => (
+                    <h1 team={pathParamSportTeam}>Schedule: Fuck Yeah!</h1>
+                  )}
                 />
               </>
             );
@@ -87,6 +85,7 @@ const App = () => {
             );
           }}
         />
+
         <Route
           path="/NBA"
           render={props => (
@@ -95,6 +94,7 @@ const App = () => {
             </ProviderNBA>
           )}
         />
+
         <Route
           path="/NFL"
           render={props => (
