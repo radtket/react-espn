@@ -5,7 +5,7 @@ const Standings = ({ teamStandings, sport }) => {
   return (
     <div>
       <h1>{sport} Standings</h1>
-      <StandingsTable teamStandings={teamStandings} sport={sport} />
+      <StandingsTable {...{ teamStandings, sport }} />
     </div>
   );
 };
