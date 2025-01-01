@@ -1,0 +1,326 @@
+@keyframes scores-show {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+$c-porcelain: #f1f2f3;
+$c-white: #fff;
+
+$c-gray-chateau: #a5a6a7;
+$c-shark: #1d1e1f;
+$c-athens-gray: #edeef0;
+$c-abbey: #48494a;
+
+.navbar-scoreboard {
+	@include clearfix;
+	backface-visibility: hidden;
+	background: $c-porcelain;
+	margin: 0 auto;
+	position: relative;
+
+	@media screen and (min-width: 768px) {
+		height: 65px;
+		left: 0;
+		overflow: visible;
+		right: 0;
+		z-index: 1000060;
+	}
+
+
+	.wrap {
+		@media screen and (min-width: 768px) {
+			@include grid-container;
+			margin: 0 auto;
+			max-width: 1400px;
+		}
+	}
+
+	.leagues {
+		.league {
+			height: 65px;
+			vertical-align: top;
+
+
+			.scoreboard {
+				@media screen and (min-width: 768px) {
+					display: flex;
+				}
+			}
+
+			.score-label {
+				animation: scores-show .5s forwards;
+				display: block;
+
+				@media screen and (min-width: 1024px) {
+					opacity: 0;
+				}
+
+				@media screen and (min-width: 768px) {
+					border-left: 1px solid $c-gray-chateau;
+					display: table-cell;
+					min-width: 60px;
+					vertical-align: top;
+				}
+			}
+		}
+
+	}
+}
+
+
+
+
+.cscore {
+	background: $c-white;
+	position: relative;
+
+	@media screen and (min-width: 768px) {
+		border-left: 1px solid $c-gray-chateau;
+		display: table-cell;
+		vertical-align: top;
+	}
+
+
+	&__link {
+		display: block;
+		min-width: 120px;
+		padding: 10px 12px;
+		position: relative;
+
+		@media screen and (min-width: 768px) {
+			height: 65px;
+			padding: 5px 12px;
+		}
+	}
+
+
+	&__overview {
+		position: relative;
+
+		@media screen and (min-width: 768px) {
+			padding-bottom: 4px;
+		}
+	}
+
+	&__date-time {
+		position: relative;
+
+		@media screen and (min-width: 768px) {
+			padding-right: 10px;
+		}
+
+		&--time {
+			font-weight: 600;
+		}
+	}
+
+
+	// &__details {
+	// 	position: relative;
+	// 	width: 100%;
+
+	// 	@media screen and (min-width: 768px) {
+	// 		align-items: center;
+	// 		display: flex;
+	// 	}
+	// }
+
+	// &__competitors {
+	// 	position: relative;
+
+	// 	@media screen and (min-width: 768px) {
+	// 		flex-grow: 1;
+	// 	}
+	// }
+
+	&__item {
+		align-items: center;
+		display: flex;
+		position: relative;
+
+		&:first-child {
+			padding-bottom: 2px;
+		}
+
+		&:last-child {
+			padding-top: 2px;
+		}
+	}
+
+	&__name {
+
+		&--long,
+		&--short,
+		&--abbrev {
+			display: inline;
+			font-weight: 600;
+			line-height: 1.3;
+		}
+
+
+		&--abbrev {
+			text-transform: uppercase;
+		}
+
+		&--long,
+		&--short {
+			@media screen and (min-width: 768px) {
+				display: none;
+			}
+		}
+	}
+
+
+
+
+
+	&__logo,
+	&__rank,
+	&__team {
+		line-height: 1;
+		position: relative;
+		vertical-align: middle;
+	}
+
+	&__logo {
+		padding-right: 5px;
+	}
+
+	&__image {
+		vertical-align: top;
+		width: 16px;
+	}
+
+	&__team {
+		align-items: center;
+		display: flex;
+		flex: 1 0 auto;
+		line-height: 1;
+		position: relative;
+		vertical-align: middle;
+	}
+
+	&__truncate {
+		color: $c-shark;
+		font-size: initial;
+		overflow: hidden;
+		padding-right: 10px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&__score {
+		color: $c-shark;
+		display: block;
+		flex-shrink: 0;
+		font-variant-numeric: tabular-nums;
+		font-weight: 800;
+		line-height: 1.3;
+		margin-left: auto;
+		position: relative;
+		text-align: right;
+		white-space: nowrap;
+	}
+
+	&__name,
+	&__score {
+		@media screen and (min-width: 768px) {
+			font-size: 11px;
+		}
+	}
+
+	&__series,
+	&__date-time,
+	&__info,
+	&__info-overview,
+	&__network,
+	&__notes,
+	&__notes p,
+	&__draft-pick,
+	&__odds {
+		font-size: 11px;
+	}
+
+	&__series,
+	&__date-time,
+	&__info,
+	&__info-overview {
+		color: $c-abbey;
+	}
+
+	&__series,
+	&__date-time,
+	&__odds,
+	&__info,
+	&__info-overview,
+	&__network,
+	&__draft-pick {
+		line-height: 1.4;
+	}
+
+
+
+
+
+
+
+}
+
+
+
+
+
+.score-label {
+	display: block;
+
+	@media screen and (min-width: 768px) {
+		border-left: 1px solid $c-gray-chateau;
+		display: table-cell;
+		min-width: 60px;
+		vertical-align: top;
+	}
+
+	&__content {
+		align-items: center;
+		cursor: pointer;
+		display: flex;
+		position: relative;
+
+		@media screen and (min-width: 768px) {
+			align-items: center;
+			background: $c-athens-gray;
+			flex-direction: column-reverse;
+			height: 66px;
+			justify-content: center;
+			padding: 0 10px;
+		}
+
+		&:after {
+			background: $c-athens-gray;
+			bottom: 0;
+			content: "";
+			display: block;
+			height: 1px;
+			left: 20px;
+			position: absolute;
+			right: 20px;
+			z-index: 1;
+		}
+	}
+
+	&__title {
+		color: $c-shark;
+		text-align: center;
+
+		@media screen and (min-width: 768px) {
+			font-size: 11px;
+			font-weight: 700;
+			line-height: 1.5;
+		}
+	}
+}
