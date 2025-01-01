@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import NavbarGlobal from "./componets/Navbar";
 import { isObjectEmpty } from "./utils/helpers";
 
@@ -33,7 +33,7 @@ const App = () => {
   const { MLB, NBA, NFL } = state.Teams;
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename="react-espn">
       <>
         <Route path="/" exact render={() => <SiteHome {...state} />} />
 
