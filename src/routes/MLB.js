@@ -10,7 +10,7 @@ const RoutesMLB = ({ match, sport }) => {
   const { state, dispatch } = useContext(StoreMLB);
 
   const fetchDataAction = () => {
-    fetch(`/data/${sport}/standings-2019.json`)
+    fetch(`${process.env.PUBLIC_URL}/data/${sport}/standings-2019.json`)
       .then(res => res.json())
       .then(data =>
         dispatch({

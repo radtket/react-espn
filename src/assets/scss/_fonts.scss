@@ -1,40 +1,71 @@
-@include font-face("JerseyM54", "../fonts/JerseyM54/JerseyM54", ("woff", "woff2", "ttf")) {
-	font-style: normal;
-	font-weight: normal;
+@include font-face(
+  "JerseyM54",
+  "%PUBLIC_URL%/fonts/JerseyM54/JerseyM54",
+  ("woff", "woff2", "ttf")
+) {
+  font-style: normal;
+  font-weight: normal;
 }
 
-
-@include font-face("rsuite-icon-font", "../fonts/RSuiteIcons/rsuite-icon-font", ("woff", "otf", "ttf", "svg")) {
-	font-style: normal;
-	font-weight: 400;
+@include font-face(
+  "rsuite-icon-font",
+  "%PUBLIC_URL%/fonts/RSuiteIcons/rsuite-icon-font",
+  ("woff", "otf", "ttf", "svg")
+) {
+  font-style: normal;
+  font-weight: 400;
 }
 
-@include font-face("Graphik", "../fonts/Graphik/Graphik-Light", ("woff", "otf", "ttf", "svg")) {
-	font-style: normal;
-	font-weight: 300;
+@include font-face(
+  "Graphik",
+  "%PUBLIC_URL%/fonts/Graphik/Graphik-Light",
+  ("woff", "otf", "ttf", "svg")
+) {
+  font-style: normal;
+  font-weight: 300;
 }
 
-@include font-face("Graphik", "../fonts/Graphik/Graphik-Regular", ("woff", "otf", "ttf", "svg")) {
-	font-style: normal;
-	font-weight: 400;
+@include font-face(
+  "Graphik",
+  "%PUBLIC_URL%/fonts/Graphik/Graphik-Regular",
+  ("woff", "otf", "ttf", "svg")
+) {
+  font-style: normal;
+  font-weight: 400;
 }
 
-@include font-face("Graphik", "../fonts/Graphik/Graphik-Medium", ("woff", "otf", "ttf", "svg")) {
-	font-style: normal;
-	font-weight: 500;
+@include font-face(
+  "Graphik",
+  "%PUBLIC_URL%/fonts/Graphik/Graphik-Medium",
+  ("woff", "otf", "ttf", "svg")
+) {
+  font-style: normal;
+  font-weight: 500;
 }
 
-@include font-face("Graphik", "../fonts/Graphik/Graphik-Semibold", ("woff", "otf", "ttf", "svg")) {
-	font-style: normal;
-	font-weight: 600;
+@include font-face(
+  "Graphik",
+  "%PUBLIC_URL%/fonts/Graphik/Graphik-Semibold",
+  ("woff", "otf", "ttf", "svg")
+) {
+  font-style: normal;
+  font-weight: 600;
 }
 
-@include font-face("Graphik", "../fonts/Graphik/Graphik-Bold", ("woff", "otf", "ttf", "svg")) {
-	font-style: normal;
-	font-weight: 700;
+@include font-face(
+  "Graphik",
+  "%PUBLIC_URL%/fonts/Graphik/Graphik-Bold",
+  ("woff", "otf", "ttf", "svg")
+) {
+  font-style: normal;
+  font-weight: 700;
 }
 
-@include font-face("Graphik", "../fonts/Graphik/Graphik-Black", ("woff", "otf", "ttf", "svg")) {
-	font-style: normal;
-	font-weight: 800;
+@include font-face(
+  "Graphik",
+  "%PUBLIC_URL%/fonts/Graphik/Graphik-Black",
+  ("woff", "otf", "ttf", "svg")
+) {
+  font-style: normal;
+  font-weight: 800;
 }

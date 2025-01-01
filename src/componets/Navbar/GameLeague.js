@@ -21,7 +21,7 @@ const GameLeague = ({ sport }) => {
       {
         headers: new Headers({
           Authorization: `Basic ${btoa(
-            `9f009b21-7cb8-4636-84e9-bcd1c5:MYSPORTSFEEDS`
+            process.env.REACT_APP_SPORTS_FEEDS_API_KEY
           )}`,
         }),
       }

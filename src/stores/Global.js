@@ -8,7 +8,7 @@ const initialState = {
 
 export const fetchTeams = Promise.all(
   ["MLB", "NBA", "NFL"].map(sport => {
-    return fetch(`/data/${sport}/teams.json`)
+    return fetch(`${process.env.PUBLIC_URL}/data/${sport}/teams.json`)
       .then(handleErrors)
       .then(value => value.json());
   })
