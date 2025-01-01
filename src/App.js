@@ -33,7 +33,7 @@ const App = () => {
   const { MLB, NBA, NFL } = state.Teams;
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <>
         <Route path="/" exact render={() => <SiteHome {...state} />} />
 
